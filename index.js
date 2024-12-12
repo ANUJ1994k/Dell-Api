@@ -41,9 +41,9 @@ app.use("/products",productRoute)
 app.use("/cart", cartRoute);
 //default home
 
-// app.use("/", (req, res) => {
-//   res.status(200).send("Home Page");
-// });
+app.use("/", (req, res) => {
+  res.status(200).send("Home Page");
+});
 
 app.listen(process.env.port, async () => {
   try {
@@ -53,7 +53,7 @@ app.listen(process.env.port, async () => {
     console.log(error);
   }
   console.log(
-    `Your server is listening to http://localhost:${process.env.port}`.bgWhite
+    `Your server is listening to http://localhost:${process.env.port || 8080}`.bgWhite
       .red
   );
 });
